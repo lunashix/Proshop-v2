@@ -30,6 +30,9 @@ app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
 
+app.get('/api/config/paypal', (req, res) => res.send({ clientId: process.env.PAYPAL_CLIENT_ID }));
+// 为了不让前端出现具体的id所以单独存储在.env文件中
+
 app.use(notFound); //use the notFound middleware
 app.use(errorHandler); //use the errorHandler middleware
 
